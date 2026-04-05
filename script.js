@@ -275,22 +275,23 @@ AOS.init({
   once: true, // animate only once (recommended for clean UI)
 });
 
-  const adminPassword = "MDRRMO123"; // set your password here
 
-//admin password prompt
-document.getElementById("adminLink").addEventListener("click", function(e) {
-  e.preventDefault();
-  
-  const input = prompt("Enter Admin Password:");
-  
-  if (input === adminPassword) {
-    // correct password → go to Admin page
-    window.location.href = "admin.html"; 
-  } else if (input !== null) {
-    alert("Hindi ka pwede dito. Mali ang password."); // wrong password
-  }
+
+const adminLinks = document.querySelectorAll('#adminLink, #adminLinkMobile');
+
+adminLinks.forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const password = prompt("Enter Admin Password:");
+    
+    if (password === "MDRRMO123") { // change this!
+      window.location.href = "admin.html";
+    } else {
+      alert("Wrong password!");
+    }
+  });
 });
-
 // ======================
 // PDF EXPORT
 // ======================
