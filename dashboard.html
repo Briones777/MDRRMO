@@ -250,17 +250,17 @@
 
   <!-- Toggle Button -->
  <button id="chatToggle"
-  class="relative flex items-center justify-center w-16 h-16 rounded-full bg-red-600 border-2 border-white shadow-lg">
+  class="relative flex items-center justify-center w-16 h-16 rounded-full bg-red-600 border-2 border-white shadow-lg 
+  transition-all duration-300 ease-in-out">
 
   <!-- Glow Ring -->
-  <span class="absolute inset-0 rounded-full border-2 border-red-400 animate-ping opacity-75"></span>
+  <span class="absolute inset-0 rounded-full border-2 border-red-400 animate-ping opacity-75 pointer-events-none"></span>
 
   <!-- Red Cross -->
-  <div class="relative z-10 w-6 h-6">
+  <div class="relative z-10 w-6 h-6 pointer-events-none">
     <div class="absolute bg-white w-6 h-2 top-2 left-0 rounded"></div>
     <div class="absolute bg-white h-6 w-2 left-2 top-0 rounded"></div>
   </div>
-
 </button>
 
   <!-- Chat Container -->
