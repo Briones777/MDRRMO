@@ -145,10 +145,24 @@
     <section class="glass p-8 rounded-xl shadow-lg mb-12 w-full"  data-aos="fade-up">
       <h2 class="text-xl font-semibold mb-4 text-neon-green text-center md:text-left">Weather Monitoring <span class="text-red-600">(Windy)</span></h2>
       <div class="w-full" data-aos="zoom-in">
-        <iframe class="w-full aspect-video md:aspect-[4/3] h-screen sm:h-80 lg:h-96 rounded-lg shadow-inner"
-          src="https://embed.windy.com/embed2.html?lat=14.6537&lon=121.0680&detailLat=14.6537&detailLon=121.0680&zoom=8&level=surface&overlay=rain&menu=&message=true"
-          frameborder="0">
+        <iframe id="windyMap"
+          width="100%" height="500"
+          src="https://embed.windy.com/embed2.html?lat=14.350&lon=120.388&zoom=6&overlay=rain">
         </iframe>
+
+        <div class="text-neon-red flex justify-center mt-4 space-x-6 text-lg font-semibold">
+          <button onclick="setOverlay('rain')">🌧 Rain</button>
+          <button onclick="setOverlay('wind')">💨 Wind</button>
+          <button onclick="setOverlay('pressure')">🌀 Typhoon</button>
+        </div>
+
+          <script>
+          function setOverlay(type) {
+            const base = "https://embed.windy.com/embed2.html";
+            const params = "?lat=14.350&lon=120.388&zoom=6&level=surface";
+            document.getElementById("windyMap").src = `${base}${params}&overlay=${type}`;
+          }
+          </script>
       </div>
     </section>
 
