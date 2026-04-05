@@ -279,19 +279,28 @@ AOS.init({
 });
 
 
-const adminLinks = document.querySelectorAll('#adminLink, #adminLinkMobile');
+document.addEventListener("DOMContentLoaded", () => {
+  const adminLinks = document.querySelectorAll('#adminLink, #adminLinkMobile');
 
-adminLinks.forEach(link => {
-  link.addEventListener('click', function(e) {
-    e.preventDefault();
+  adminLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault(); // prevent default navigation
 
-    const password = prompt("Enter Admin Password:");
-    
-    if (password === "MDRRMO123") { // change this!
-      window.location.href = "admin.html";
-    } else {
-      alert("Wrong password!");
-    }
+      const password = prompt("Enter Admin Password:");
+
+      // Cancel or empty input
+      if (!password || password.trim() === "") {
+        alert("Password cannot be empty!");
+        return; // stop
+      }
+
+      // Correct password
+      if (password === "MDRRMO123") {
+        window.location.href = "admin.html";
+      } else {
+        alert("Wrong password!");
+      }
+    });
   });
 });
 
