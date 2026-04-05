@@ -1,0 +1,145 @@
+/* Glassmorphism sections */
+    .glass {
+      background: rgba(15, 15, 15, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 1rem;
+      border: 1px solid rgba(219, 5, 5, 0.4);
+      box-shadow: 0 4px 12px rgb(85, 2, 2);
+    }
+    @supports not (backdrop-filter: blur(10px)) {
+      .glass {
+        background: rgba(219, 5, 5, 0.4);
+        box-shadow: 0 3px 32px rgba(85, 2, 2);
+      }
+    }
+
+    /* Neon text */
+    .text-neon-green { color: #23e002; }
+    .text-neon-red { color: #fd2929e5; }
+
+    /* Clickable logo hover effect */
+    .logo-hover:hover { transform: scale(1.05); transition: transform 0.3s; }
+
+    /* DM Serif font */
+    @font-face {
+      font-family: 'DMSerif';
+      src: url('./fonts/DMSerif-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    .font-dmserif { font-family: 'DMSerif', serif; }
+
+    /* Hotlines sidebar */
+    .hotlines-sidebar {
+      background: rgba(15, 15, 15, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 1rem;
+      border: 1px solid rgba(57, 255, 20, 0.4);
+      box-shadow: 0 8px 32px rgba(57, 255, 20, 0.1);
+    }
+    @supports not (backdrop-filter: blur(10px)) {
+      .hotlines-sidebar {
+        background: rgba(15, 15, 15, 0.8);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      }
+    }
+    .hotline-item svg { width: 24px; height: 24px; }
+
+
+
+    /* FLOAT */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* GLOW PULSE */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(255,0,0,0.6),
+                0 0 20px rgba(255,0,0,0.4),
+                0 0 30px rgba(255,0,0,0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255,0,0,1),
+                0 0 40px rgba(255,0,0,0.8),
+                0 0 60px rgba(255,0,0,0.6);
+  }
+}
+
+/* APPLY ANIMATIONS */
+#chatToggle {
+  animation: float 3.5s ease-in-out infinite,
+             glow 1.5s ease-in-out infinite;
+}
+
+/* CLICK RIPPLE EFFECT */
+#chatToggle:active::after {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: rgba(255,255,255,0.3);
+  border-radius: 9999px;
+  top: -10%;
+  left: -10%;
+  animation: ripple 0.4s ease-out;
+}
+
+@keyframes ripple {
+  from {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Base shared styles */
+[data-aos="slide-left"],
+[data-aos="slide-right"] {
+  opacity: 0;
+  transition-property: transform, opacity;
+  transition-duration: 800ms;
+  transition-timing-function: ease-out;
+}
+
+/* Slide from LEFT → RIGHT */
+[data-aos="slide-right"] {
+  transform: translateX(-100px);
+}
+
+[data-aos="slide-right"].aos-animate {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Slide from RIGHT → LEFT */
+[data-aos="slide-left"] {
+  transform: translateX(100px);
+}
+
+[data-aos="slide-left"].aos-animate {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Fade out the page */
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Fade in the page on load */
+.fade-in {
+  opacity: 0;
+}
+
+body.loaded {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}

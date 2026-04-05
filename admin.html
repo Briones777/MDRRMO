@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MDRRMO</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="./images/mdr.PNG" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body class="bg-black text-white font-sans min-h-screen flex flex-col justify-between">
+
+  <header class="p-6 top-0 left-0 right-0  bg-black/40">
+    <div class="flex justify-between items-center">
+     <div class="flex flex-col md:flex-row items-center md:justify-start space-y-3 md:space-y-0 md:space-x-4 px-4">
+    
+    <!-- Logos -->
+    <div class="flex space-x-4 mt-6 ml-12">
+      <img src="./images/MunicipalityRosario-logo.png" alt="rsr Logo"
+           class="w-24 h-24 md:w-24 md:h-24 rounded-full object-cover16 md:h-16 rounded-full object-cover">
+      <img src="./images/mdr.PNG" alt="MDRRMO Logo"
+           class="w-24 h-24 md:w-24 md:h-24 rounded-full object-cover16 md:h-16 rounded-full object-cover md:h-16 rounded-full object-cover">        
+    </div>
+    
+    <!-- Text -->
+    <div class="flex flex-col text-center md:text-left md:ml-6 mt-6 ml-16">
+      <h1 class="text-3xl md:text-3xl font-bold text-neon-green">MDRRMO Rosario, Cavite</h1>
+      <span class="text-xs md:text-sm text-[#FF0000] font-bold">Bayang Tahimik, Masaya, at Maunlad</span>
+    </div>
+  </div>
+
+   <nav class="hidden md:flex space-x-4 font-semibold text-neon-green text-sm md:text-sm mr-16 mt-12">
+        <!-- ABOUT DROPDOWN -->
+          <div class="relative group">
+            <button class="hover:underline transition flex items-center gap-1">
+              About ▾
+            </button>
+
+            <div class="absolute left-0 mt-2 w-36 bg-black/90 backdrop-blur-md border border-green-500 rounded-lg shadow-lg 
+            opacity-0 invisible translate-y-2 
+            group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 
+            transition-all duration-300 z-50">
+              
+              <a href="#mission" class="block px-4 py-2 hover:bg-green-500/10 text-neon-red font-semibold">Our Mission</a>
+              <a href="#team" class="block px-4 py-2 hover:bg-green-500/10 text-neon-red font-semibold">Our Team</a>
+            
+            </div>
+          </div>
+ 
+        <!-- HOTLINES DROPDOWN -->
+        <div class="relative group">
+          <button class="hover:underline transition flex items-center gap-1">
+            Hotlines ▾
+          </button>
+
+          <!-- Dropdown Menu -->
+          <div class="absolute left-0 mt-2 w-36 bg-black/90 backdrop-blur-md border border-green-500 rounded-lg shadow-lg 
+            opacity-0 invisible translate-y-2 
+            group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 
+            transition-all duration-300 z-50">
+            
+            <a href="tel:09123456789" class="block px-4 py-2 hover:bg-green-500/20">🚒 BFP Rosario - <span class="text-neon-red"> 09123456789 </span></a>
+            <a href="tel:09123456789" class="block px-4 py-2 hover:bg-green-500/20">🚓 PNP Rosario - <span class="text-neon-red"> 09123456789</span></a>
+            <a href="tel:09123456789" class="block px-4 py-2 hover:bg-green-500/20">🏥 RHU Rosario - <span class="text-neon-red"> 09123456789</span></a>
+            <a href="tel:09123456789" class="block px-4 py-2 hover:bg-green-500/20">⛑️ Red Cross Rosario - <span class="text-neon-red"> 09123456789</span></a>
+            <a href="tel:09123456789" class="block px-4 py-2 hover:bg-green-500/20">📞 MDRRMO Rosario - <span class="text-neon-red"> 09123456789</span></a>
+          
+          </div>
+        </div>
+
+        <a href="#gallery" class=" hover:underline transition">Gallery</a>
+        <a href="#announcements" class=" hover:underline transition">Announcements</a>
+        <a href="index.html" class="hover:underline transition">Close Session</a>
+      </nav>
+
+      <!-- Mobile Hamburger -->
+      <div class="md:hidden flex items-center z-20">
+        <button id="mobileMenuBtn" class="p-2 rounded-lg hover:text-green-800 z-20 text-neon-green focus:outline-none">
+          <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Backdrop -->
+    <div id="mobileBackdrop" class="fixed inset-0 bg-black/80 z-20 hidden"></div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed top-0 right-[-35%] h-full w-[35%] bg-black/90 shadow-lg transform transition-transform duration-300 z-50">
+      <div class="p-6 mt-4 mb-4 text-[#FF0000] text-xl font-bold">Navigation</div>
+      <nav class="flex flex-col space-y-4 p-6 font-semibold text-neon-red text-sm md:text-sm">
+        <div class="relative group">
+            <button class="hover:underline transition flex items-center gap-1">
+              About ▾
+            </button>
+
+            <div class="absolute left-0 mt-2 w-36 bg-black/90 backdrop-blur-md border border-green-500 rounded-lg shadow-lg 
+            opacity-0 invisible translate-y-2 
+            group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 
+            transition-all duration-300 z-50">
+              
+              <a href="#mission" class="block px-4 py-2 hover:bg-green-500/10 text-neon-red font-semibold">Our Mission</a>
+              <a href="#team" class="block px-4 py-2 hover:bg-green-500/10 text-neon-red font-semibold">Our Team</a>
+            
+            </div>
+          </div>
+        
+         <!-- HOTLINES DROPDOWN -->
+        <div class="relative group">
+          <button class="hover:underline transition flex items-center gap-1">
+            Hotlines ▾
+          </button>
+
+          <!-- Dropdown Menu -->
+          <div class="absolute left-0 mt-2 w-36 bg-black/90 backdrop-blur-md border border-green-500 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300 z-50">
+            
+            <a href="tel:09123456789" class="block px-4 py-2 hover:bg-green-500/20">🚒 BFP Rosario - <span class="text-neon-red"> 09123456789 </span></a>
+            <a href="tel:09123456789" class="block px-4 py-2 hover:bg-green-500/20">🚓 PNP Rosario - <span class="text-neon-red"> 09123456789</span></a>
+            <a href="tel:09123456789" class="block px-4 py-2 hover:bg-green-500/20">🏥 RHU Rosario - <span class="text-neon-red"> 09123456789</span></a>
+            <a href="tel:09123456789" class="block px-4 py-2 hover:bg-green-500/20">⛑️ Red Cross Rosario - <span class="text-neon-red"> 09123456789</span></a>
+            <a href="tel:09123456789" class="block px-4 py-2 hover:bg-green-500/20">📞 MDRRMO Rosario - <span class="text-neon-red"> 09123456789</span></a>
+          
+          </div>
+        </div>
+        <a href="#gallery" class="hover:text-red-800 hover:underline transition text-sm font-semibold">Gallery</a>
+        <a href="#announcements" class="hover:text-red-800 hover:underline transition text-sm font-semibold">Announcements</a>
+        <a href="index.html" class="hover:text-red-800 hover:underline transition text-sm font-semibold">Close Session</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="p-8 space-y-12">
+
+    <!-- INCIDENT FORM -->
+    <div class="glass max-w-5xl mx-auto p-9 rounded-xl shadow-lg">
+      <h2 class="text-3xl font-bold mb-6 text-neon-green">Report Emergency</h2>
+      <form id="incidentForm" method="POST" action="add_incident.php" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label for="type" class="block text-sm font-medium mb-2">Type *</label>
+          <input id="type" type="text" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Fire, Accident, Flood">
+        </div>
+        <div>
+          <label for="location" class="block text-sm font-medium mb-2">Location *</label>
+          <input id="location" type="text" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Address/Barangay">
+        </div>
+        <div>
+          <label for="dateTime" class="block text-sm font-medium mb-2">Date/Time</label>
+          <input id="dateTime" type="datetime-local" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500">
+        </div>
+        <div>
+          <label for="action" class="block text-sm font-medium mb-2">Action Taken</label>
+          <input id="action" type="text" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Initial response">
+        </div>
+        <div class="md:col-span-2">
+          <label for="details" class="block text-sm font-medium mb-2">Details</label>
+          <textarea id="details" rows="4" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Describe the incident..."></textarea>
+        </div>
+        <div>
+          <label for="status" class="block text-sm font-medium mb-2">Status</label>
+          <input id="status" type="text" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Pending, Responding, Resolved">
+        </div>
+        <div>
+          <label for="responders" class="block text-sm font-medium mb-2">Responder/s</label>
+          <input id="responders" type="text" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Names/Teams">
+        </div>
+      </form>
+      <button type="submit" form="incidentForm" class="mt-6 bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-xl font-semibold w-full md:w-auto shadow-lg transition-all">
+        Submit Report
+      </button>
+    </div>
+
+    <!-- INCIDENT TABLE -->
+    <div class="glass max-w-5xl mx-auto  rounded-xl shadow-lg overflow-hidden">
+      <div class="p-6 border-b">
+        <h2 class="text-3xl font-bold text-neon-green mb-4">Active Incidents</h2>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead class="bg-gray-50 text-gray-700">
+            <tr>
+              <th class="px-6 py-4 text-left font-semibold">Type</th>
+              <th class="px-6 py-4 text-left font-semibold hidden sm:table-cell">Location</th>
+              <th class="px-6 py-4 text-left font-semibold hidden md:table-cell">Date/Time</th>
+              <th class="px-6 py-4 text-left font-semibold hidden lg:table-cell">Details</th>
+              <th class="px-6 py-4 text-left font-semibold hidden md:table-cell">Action</th>
+              <th class="px-6 py-4 text-left font-semibold">Status</th>
+              <th class="px-6 py-4 text-left font-semibold hidden sm:table-cell">Responder/s</th>
+              <th class="px-6 py-4 text-left font-semibold">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="incidentTable" class="divide-y divide-gray-200"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- DUTY ROSTER FORM -->
+    <div class="glass  max-w-5xl mx-auto p-9 rounded-xl shadow-lg">
+      <h2 class="text-3xl font-bold mb-6 text-neon-green">Add Duty Roster</h2>
+      <form id="rosterForm" class="grid grid-cols-2 md:grid-cols-2 gap-4">
+        <div>
+          <label for="date" class="block text-sm font-medium mb-2">Date *</label>
+          <input id="date" type="date" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500">
+        </div>
+        <div>
+          <label for="name" class="block text-sm font-medium mb-2">Name *</label>
+          <input id="name" type="text" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Full Name">
+        </div>
+        <div>
+          <label for="role" class="block text-sm font-medium mb-2">Role *</label>
+          <input id="role" type="text" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Firefighter, Medic, Officer">
+        </div>
+        <div>
+          <label for="shift" class="block text-sm font-medium mb-2">Shift *</label>
+          <input id="shift" type="text" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Morning, Afternoon, Night">
+        </div>
+        <div>
+          <label for="contact" class="block text-sm font-medium mb-2">Contact *</label>
+          <input id="contact" type="text" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Phone/Email">
+        </div>
+        <div>
+          <label for="rosterRemarks" class="block text-sm font-medium mb-2">Remarks *</label>
+          <input id="rosterRemarks" type="text" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Additional Information">
+        </div>
+      </form>
+      <button type="submit" form="rosterForm" class="mt-6 bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-xl font-semibold w-full md:w-auto shadow-lg transition-all">
+        Add to Roster
+      </button>
+    </div>
+
+    <!-- DUTY ROSTER TABLE -->
+    <div class="glass  max-w-5xl mx-auto rounded-xl shadow-lg overflow-hidden">
+      <div class="p-6 border-b">
+        <h2 class="text-3xl font-bold text-neon-green mb-4">Duty Roster</h2>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead class="bg-gray-50 text-gray-700">
+            <tr>
+              <th class="px-6 py-4 text-left font-semibold">Date</th>
+              <th class="px-6 py-4 text-left font-semibold">Name</th>
+              <th class="px-6 py-4 text-left font-semibold">Role</th>
+              <th class="px-6 py-4 text-left font-semibold">Shift</th>
+              <th class="px-6 py-4 text-left font-semibold">Contact</th>
+              <th class="px-6 py-4 text-left font-semibold">Remarks</th>
+              <th class="px-6 py-4 text-left font-semibold">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="dutyRosterTable" class="divide-y divide-gray-200"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- VOLUNTEER FORM -->
+    <div class="glass  max-w-5xl mx-auto p-9 rounded-xl shadow-lg">
+      <h2 class="text-3xl font-bold mb-6 text-neon-green">Add Volunteer</h2>
+      <form id="volunteerForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label for="org" class="block text-sm font-medium mb-2">Organization *</label>
+          <input id="org" type="text" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Organization Name">
+        </div>
+        <div>
+          <label for="vname" class="block text-sm font-medium mb-2">Name *</label>
+          <input id="vname" type="text" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Full Name">
+        </div>
+        <div>
+          <label for="designation" class="block text-sm font-medium mb-2">Designation *</label>
+          <input id="designation" type="text" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Role / Position">
+        </div>
+        <div>
+          <label for="vcontact" class="block text-sm font-medium mb-2">Contact Number *</label>
+          <input id="vcontact" type="text" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Phone / Email">
+        </div>
+        <div>
+          <label for="vdatetime" class="block text-sm font-medium mb-2">Date & Time *</label>
+          <input id="vdatetime" type="datetime-local" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500">
+        </div>
+        <div>
+          <label for="teamleader" class="block text-sm font-medium mb-2">Team Leader *</label>
+          <input id="teamleader" type="text" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Team Leader Name">
+        </div>
+        <div>
+          <label for="volunteerRemarks" class="block text-sm font-medium mb-2">Remarks *</label>
+          <input id="volunteerRemarks" type="text" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Additional Information">
+        </div>
+      </form>
+      <button type="submit" form="volunteerForm" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-semibold w-full md:w-auto shadow-lg transition-all">
+        Add Volunteer
+      </button>
+    </div>
+
+    <!-- VOLUNTEER TABLE -->
+    <div class="glass  max-w-5xl mx-auto rounded-xl shadow-lg overflow-hidden">
+      <div class="p-6 border-b">
+        <h2 class="text-3xl font-bold text-neon-green mb-4">Volunteer List</h2>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead class="bg-gray-50 text-gray-700 p-6">
+            <tr>
+              <th class="px-6 py-4 text-left font-semibold">Organization</th>
+              <th class="px-6 py-4 text-left font-semibold">Name</th>
+              <th class="px-6 py-4 text-left font-semibold">Designation</th>
+              <th class="px-6 py-4 text-left font-semibold">Contact</th>
+              <th class="px-6 py-4 text-left font-semibold">Date & Time</th>
+              <th class="px-6 py-4 text-left font-semibold">Team Leader</th>
+              <th class="px-6 py-4 text-left font-semibold">Remarks</th>
+              <th class="px-6 py-4 text-left font-semibold">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="volunteerTable" class="divide-y divide-gray-200"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-neon-red text-center text-xs font-bold p-4 mt-12">
+    &copy; 2026 MDRRMO Rosario, Cavite - All Rights Reserved
+  </footer>
+
+</body>
+</html>
