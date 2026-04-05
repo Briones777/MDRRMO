@@ -285,7 +285,7 @@ document.getElementById("adminLink").addEventListener("click", function(e) {
   
   if (input === adminPassword) {
     // correct password → go to Admin page
-    window.location.href = "Admin.html"; 
+    window.location.href = "admin.html"; 
   } else if (input !== null) {
     alert("Hindi ka pwede dito. Mali ang password."); // wrong password
   }
