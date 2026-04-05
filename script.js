@@ -297,69 +297,36 @@ adminLinks.forEach(link => {
 // ======================
 // PDF EXPORT
 // ======================
-async function downloadPDF(tableId, titleText) {
-  const table = document.getElementById(tableId);
-
-  if (!table) return;
-
-  // Clone table for PDF to avoid modifying original table
-  const clone = table.cloneNode(true);
-
-  // Create a container div for PDF
-  const container = document.createElement('div');
-  container.style.padding = '20px';
-  container.style.backgroundColor = 'white';
-  container.style.color = 'black';
-
-  // Add title
-  const title = document.createElement('h1');
-  title.textContent = titleText.replace(/_/g, ' '); // Replace underscores with spaces
-  title.style.textAlign = 'center';
-  title.style.marginBottom = '20px';
-  container.appendChild(title);
-
-  // Append table clone
-  container.appendChild(clone);
-
-  // Append container to body temporarily
-  document.body.appendChild(container);
-
-  // Generate PDF using html2canvas + jsPDF
-  const canvas = await html2canvas(container, { scale: 2 });
-  const imgData = canvas.toDataURL('image/png');
-  const pdf = new jsPDF('p', 'pt', 'a4');
-  const imgProps = pdf.getImageProperties(imgData);
-  const pdfWidth = pdf.internal.pageSize.getWidth();
-  const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-  pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-  pdf.save(`${titleText}.pdf`);
-
-  // Remove temporary container
-  document.body.removeChild(container);
-}
-
-// ================= PRINT TABLE =================
 function printTable(tableId, titleText = '') {
   const table = document.getElementById(tableId);
   if (!table) return;
 
   const printWindow = window.open('', '', 'width=900,height=700');
-  printWindow.document.write('<html><head><title>' + (titleText || 'Print Table') + '</title>');
-  printWindow.document.write('<style>');
-  printWindow.document.write('body{font-family:sans-serif; padding:20px;}');
-  printWindow.document.write('h1{text-align:center; margin-bottom:20px;}');
-  printWindow.document.write('table{width:100%; border-collapse: collapse;}');
-  printWindow.document.write('th, td{border:1px solid #000; padding:8px; text-align:left;}');
-  printWindow.document.write('</style></head><body>');
 
-  // Add title
-  printWindow.document.write('<h1>' + (titleText || 'Table') + '</h1>');
+  // Create document structure
+  const doc = printWindow.document;
+  const html = doc.documentElement;
 
-  // Add table
-  printWindow.document.write(table.outerHTML);
-  printWindow.document.write('</body></html>');
+  // Clear existing content
+  doc.head.innerHTML = `
+    <title>${titleText || 'Print Table'}</title>
+    <style>
+      body{font-family:sans-serif; padding:20px;}
+      h1{text-align:center; margin-bottom:20px;}
+      table{width:100%; border-collapse: collapse;}
+      th, td{border:1px solid #000; padding:8px; text-align:left;}
+    </style>
+  `;
 
-  printWindow.document.close();
+  const body = doc.body;
+  const h1 = doc.createElement('h1');
+  h1.textContent = titleText || 'Table';
+  body.appendChild(h1);
+
+  const tableClone = table.cloneNode(true);
+  body.appendChild(tableClone);
+
+  printWindow.focus();
   printWindow.print();
 }
 
