@@ -69,6 +69,7 @@ chatToggle.addEventListener('click', () => {
   }
 });
 
+
 // =====================
 // CLEAR CHAT
 // =====================
@@ -278,7 +279,6 @@ AOS.init({
 });
 
 
-
 const adminLinks = document.querySelectorAll('#adminLink, #adminLinkMobile');
 
 adminLinks.forEach(link => {
@@ -293,10 +293,12 @@ adminLinks.forEach(link => {
       alert("Wrong password!");
     }
   });
+});
 
 // ======================
 // PDF EXPORT
 // ======================
+// ================= DOWNLOAD PDF =================
 function printTable(tableId, titleText = '') {
   const table = document.getElementById(tableId);
   if (!table) return;
@@ -365,48 +367,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-document.getElementById('incidentForm').addEventListener('submit', async (e)=>{
-    e.preventDefault();
-
-    const data = {
-        type: document.getElementById('type').value,
-        location: document.getElementById('location').value,
-        dateTime: document.getElementById('dateTime').value,
-        action: document.getElementById('action').value,
-        details: document.getElementById('details').value,
-        status: document.getElementById('status').value,
-        responders: document.getElementById('responders').value
-    };
-
-    const res = await fetch('add_incident.php',{
-        method:'POST',
-        headers: {'Content-Type':'application/x-www-form-urlencoded'},
-        body: new URLSearchParams(data)
-    });
-    const result = await res.json();
-    alert(result.message);
-    if(result.success){
-        loadIncidents(); // refresh table
-        document.getElementById('incidentForm').reset();
-    }
-});
-
-// Load table dynamically
-async function loadIncidents(){
-    const res = await fetch('get_incidents.php');
-    const data = await res.json();
-    const tbody = document.getElementById('incidentTable');
-    tbody.innerHTML = '';
-    data.forEach(row=>{
-        tbody.innerHTML += `<tr>
-            <td class="px-6 py-4">${row.type}</td>
-            <td class="px-6 py-4">${row.location}</td>
-            <td class="px-6 py-4">${row.dateTime}</td>
-            <td class="px-6 py-4">${row.details}</td>
-            <td class="px-6 py-4">${row.actionTaken}</td>
-            <td class="px-6 py-4">${row.status}</td>
-            <td class="px-6 py-4">${row.responders}</td>
-        </tr>`;
-    });
-}
-loadIncidents();
