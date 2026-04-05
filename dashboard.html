@@ -150,19 +150,28 @@
           src="https://embed.windy.com/embed2.html?lat=14.350&lon=120.388&zoom=6&overlay=rain">
         </iframe>
 
-        <div class="text-neon-red flex justify-center mt-4 space-x-6 text-lg font-semibold">
-          <button onclick="setOverlay('rain')">🌧 Rain</button>
-          <button onclick="setOverlay('wind')">💨 Wind</button>
-          <button onclick="setOverlay('pressure')">🌀 Typhoon</button>
+        <div class=" flex justify-center mt-4 space-x-6 text-sm">
+              <button onclick="setOverlay('rain')" class="px-4 py-2 bg-red-600 text-black font-semibold rounded-lg shadow 
+             transition-all duration-300 
+             hover:bg-red-700 hover:scale-105">🌧 Rain</button>
+              <button onclick="setOverlay('wind')" class="px-4 py-2 bg-green-600 text-black font-semibold rounded-lg shadow 
+             transition-all duration-300 
+             hover:bg-green-700 hover:scale-105">💨 Wind</button>
+              <button onclick="setOverlay('pressure')" class="px-4 py-2 bg-purple-600 text-black font-semibold rounded-lg shadow 
+             transition-all duration-300 
+             hover:bg-purple-700 hover:scale-105">🌀 Typhoon</button>
+              <button onclick="setOverlay('satellite')" class="px-4 py-2 bg-orange-600 text-black font-semibold rounded-lg shadow 
+             transition-all duration-300 
+             hover:bg-yellow-700 hover:scale-105">🛰 Satellite</button>
         </div>
 
-          <script>
-          function setOverlay(type) {
-            const base = "https://embed.windy.com/embed2.html";
-            const params = "?lat=14.350&lon=120.388&zoom=6&level=surface";
-            document.getElementById("windyMap").src = `${base}${params}&overlay=${type}`;
-          }
-          </script>
+        <script>
+            function setOverlay(type) {
+              const base = "https://embed.windy.com/embed2.html";
+              const params = "?lat=14.350&lon=120.388&zoom=6&level=surface";
+              document.getElementById("windyMap").src = `${base}${params}&overlay=${type}`;
+            }
+        </script>
       </div>
     </section>
 
