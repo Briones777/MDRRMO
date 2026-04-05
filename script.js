@@ -50,19 +50,21 @@
 
 
 // DOM Elements
-const chatToggle = document.getElementById('chatToggle');
+const chatToggle = document.getElementById('chatToggle'); 
 const chatBox = document.getElementById('chatBox');
-const chatMessages = document.getElementById('chatMessages');
 
-// =====================
-// TOGGLE CHAT
-// =====================
 chatToggle.addEventListener('click', () => {
   if (chatBox.classList.contains('hidden')) {
+    // OPEN CHAT
     chatBox.classList.remove('hidden');
-    setTimeout(() => chatBox.classList.add('scale-100'), 10);
+    setTimeout(() => {
+      chatBox.classList.remove('scale-0');
+      chatBox.classList.add('scale-100');
+    }, 10);
   } else {
+    // CLOSE CHAT
     chatBox.classList.remove('scale-100');
+    chatBox.classList.add('scale-0');
     setTimeout(() => chatBox.classList.add('hidden'), 200);
   }
 });
