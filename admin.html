@@ -75,12 +75,12 @@
 
         <a href="#gallery" class=" hover:underline transition">Gallery</a>
         <a href="#announcements" class=" hover:underline transition">Announcements</a>
-        <a href="dashboard.html" class="hover:underline transition">Close Session</a>
+        <a href="index.html" class="hover:underline transition">Close Session</a>
       </nav>
 
       <!-- Mobile Hamburger -->
-      <div class="md:hidden flex items-center z-50">
-        <button id="mobileMenuBtn" class="p-2 rounded-lg hover:text-green-800 z-50 text-neon-green focus:outline-none">
+      <div class="md:hidden flex items-center z-20">
+        <button id="mobileMenuBtn" class="p-2 rounded-lg hover:text-green-800 z-20 text-neon-green focus:outline-none">
           <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
@@ -94,7 +94,7 @@
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="fixed top-0 right-[-35%] h-full w-[35%] bg-black/90 shadow-lg transform transition-transform duration-300 z-50">
       <div class="p-6 mt-4 mb-4 text-[#FF0000] text-xl font-bold">Navigation</div>
-      <nav class="flex flex-col space-y-9 p-6 font-semibold text-neon-red text-sm md:text-sm">
+      <nav class="flex flex-col space-y-4 p-6 font-semibold text-neon-red text-sm md:text-sm">
         <div class="relative group">
             <button class="hover:underline transition flex items-center gap-1">
               About ▾
@@ -130,7 +130,7 @@
         </div>
         <a href="#gallery" class="hover:text-red-800 hover:underline transition text-sm font-semibold">Gallery</a>
         <a href="#announcements" class="hover:text-red-800 hover:underline transition text-sm font-semibold">Announcements</a>
-        <a href="dashboard.html" class="hover:text-red-800 hover:underline transition text-sm font-semibold">Close Session</a>
+        <a href="index.html" class="hover:text-red-800 hover:underline transition text-sm font-semibold">Close Session</a>
       </nav>
     </div>
   </header>
@@ -176,28 +176,38 @@
     </div>
 
     <!-- INCIDENT TABLE -->
-    <div class="glass max-w-5xl mx-auto  rounded-xl shadow-lg overflow-hidden">
-      <div class="p-6 border-b">
-        <h2 class="text-3xl font-bold text-neon-green mb-4">Active Incidents</h2>
-      </div>
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm">
-          <thead class="bg-gray-50 text-gray-700">
-            <tr>
-              <th class="px-6 py-4 text-left font-semibold">Type</th>
-              <th class="px-6 py-4 text-left font-semibold hidden sm:table-cell">Location</th>
-              <th class="px-6 py-4 text-left font-semibold hidden md:table-cell">Date/Time</th>
-              <th class="px-6 py-4 text-left font-semibold hidden lg:table-cell">Details</th>
-              <th class="px-6 py-4 text-left font-semibold hidden md:table-cell">Action</th>
-              <th class="px-6 py-4 text-left font-semibold">Status</th>
-              <th class="px-6 py-4 text-left font-semibold hidden sm:table-cell">Responder/s</th>
-              <th class="px-6 py-4 text-left font-semibold">Actions</th>
-            </tr>
-          </thead>
-          <tbody id="incidentTable" class="divide-y divide-gray-200"></tbody>
-        </table>
-      </div>
-    </div>
+    <div class="glass max-w-5xl mx-auto rounded-xl shadow-lg overflow-hidden mb-12">
+  <div class="p-6 border-b flex justify-between items-center">
+    <h2 class="text-3xl font-bold text-neon-red mb-4">Active Incidents</h2>
+    <div class="flex justify-end mb-4 space-x-2">
+      <button onclick="printTable('incidentTable', 'Incident Report')" 
+          class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg shadow-md flex items-center gap-2">
+    <span>Print</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+            d="M6 9V2h12v7m-6 11v-6m-6 6h12m-6-6h0" />
+    </svg>
+  </button>
+</div>
+
+  </div>
+  <div class="overflow-x-auto">
+    <table id="incidentTable" class="w-full text-sm">
+      <thead class="bg-gray-50 text-gray-700">
+        <tr>
+          <th class="px-6 py-4 text-left font-semibold">Type</th>
+          <th class="px-6 py-4 text-left font-semibold">Location</th>
+          <th class="px-6 py-4 text-left font-semibold">Date/Time</th>
+          <th class="px-6 py-4 text-left font-semibold">Details</th>
+          <th class="px-6 py-4 text-left font-semibold">Action</th>
+          <th class="px-6 py-4 text-left font-semibold">Status</th>
+          <th class="px-6 py-4 text-left font-semibold">Responder/s</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200"></tbody>
+    </table>
+  </div>
+</div>
 
     <!-- DUTY ROSTER FORM -->
     <div class="glass  max-w-5xl mx-auto p-9 rounded-xl shadow-lg">
@@ -234,27 +244,36 @@
     </div>
 
     <!-- DUTY ROSTER TABLE -->
-    <div class="glass  max-w-5xl mx-auto rounded-xl shadow-lg overflow-hidden">
-      <div class="p-6 border-b">
-        <h2 class="text-3xl font-bold text-neon-green mb-4">Duty Roster</h2>
-      </div>
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm">
-          <thead class="bg-gray-50 text-gray-700">
-            <tr>
-              <th class="px-6 py-4 text-left font-semibold">Date</th>
-              <th class="px-6 py-4 text-left font-semibold">Name</th>
-              <th class="px-6 py-4 text-left font-semibold">Role</th>
-              <th class="px-6 py-4 text-left font-semibold">Shift</th>
-              <th class="px-6 py-4 text-left font-semibold">Contact</th>
-              <th class="px-6 py-4 text-left font-semibold">Remarks</th>
-              <th class="px-6 py-4 text-left font-semibold">Actions</th>
-            </tr>
-          </thead>
-          <tbody id="dutyRosterTable" class="divide-y divide-gray-200"></tbody>
-        </table>
-      </div>
+    <div class="glass max-w-5xl mx-auto rounded-xl shadow-lg overflow-hidden mb-12">
+  <div class="p-6 border-b flex justify-between items-center">
+    <h2 class="text-3xl font-bold text-neon-red mb-4">Duty Roster</h2>
+    <div class="flex justify-end mb-4 space-x-2">
+      <button onclick="printTable('dutyRosterTable', 'Duty Roster')" 
+                  class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg shadow-md flex items-center gap-2">
+            <span>Print</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M6 9V2h12v7m-6 11v-6m-6 6h12m-6-6h0" />
+            </svg>
+     </button>
     </div>
+  </div>
+  <div class="overflow-x-auto">
+    <table id="dutyRosterTable" class="w-full text-sm">
+      <thead class="bg-gray-50 text-gray-700">
+        <tr>
+          <th class="px-6 py-4 text-left font-semibold">Date</th>
+          <th class="px-6 py-4 text-left font-semibold">Name</th>
+          <th class="px-6 py-4 text-left font-semibold">Role</th>
+          <th class="px-6 py-4 text-left font-semibold">Shift</th>
+          <th class="px-6 py-4 text-left font-semibold">Contact</th>
+          <th class="px-6 py-4 text-left font-semibold">Remarks</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200"></tbody>
+    </table>
+  </div>
+</div>
 
     <!-- VOLUNTEER FORM -->
     <div class="glass  max-w-5xl mx-auto p-9 rounded-xl shadow-lg">
@@ -274,11 +293,11 @@
         </div>
         <div>
           <label for="vcontact" class="block text-sm font-medium mb-2">Contact Number *</label>
-          <input id="vcontact" type="text" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Phone / Email">
+          <input id="vcontact" type="text" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 text-black" placeholder="Phone / Email">
         </div>
         <div>
           <label for="vdatetime" class="block text-sm font-medium mb-2">Date & Time *</label>
-          <input id="vdatetime" type="datetime-local" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500">
+          <input id="vdatetime" type="datetime-local" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 text-black">
         </div>
         <div>
           <label for="teamleader" class="block text-sm font-medium mb-2">Team Leader *</label>
@@ -295,29 +314,38 @@
     </div>
 
     <!-- VOLUNTEER TABLE -->
-    <div class="glass  max-w-5xl mx-auto rounded-xl shadow-lg overflow-hidden">
-      <div class="p-6 border-b">
-        <h2 class="text-3xl font-bold text-neon-green mb-4">Volunteer List</h2>
-      </div>
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm">
-          <thead class="bg-gray-50 text-gray-700 p-6">
-            <tr>
-              <th class="px-6 py-4 text-left font-semibold">Organization</th>
-              <th class="px-6 py-4 text-left font-semibold">Name</th>
-              <th class="px-6 py-4 text-left font-semibold">Designation</th>
-              <th class="px-6 py-4 text-left font-semibold">Contact</th>
-              <th class="px-6 py-4 text-left font-semibold">Date & Time</th>
-              <th class="px-6 py-4 text-left font-semibold">Team Leader</th>
-              <th class="px-6 py-4 text-left font-semibold">Remarks</th>
-              <th class="px-6 py-4 text-left font-semibold">Actions</th>
-            </tr>
-          </thead>
-          <tbody id="volunteerTable" class="divide-y divide-gray-200"></tbody>
-        </table>
-      </div>
+    <div class="glass max-w-5xl mx-auto rounded-xl shadow-lg overflow-hidden mb-12">
+  <div class="p-6 border-b flex justify-between items-center">
+    <h2 class="text-3xl font-bold text-neon-red mb-4">Volunteer List</h2>
+    <div class="flex justify-end mb-4 space-x-2">
+      <button onclick="printTable('volunteerTable', 'Volunteer List')" 
+          class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg shadow-md flex items-center gap-2">
+        <span>Print</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                d="M6 9V2h12v7m-6 11v-6m-6 6h12m-6-6h0" />
+        </svg>
+      </button>
     </div>
-  </main>
+  </div>
+  <div class="overflow-x-auto">
+    <table id="volunteerTable" class="w-full text-sm">
+      <thead class="bg-gray-50 text-gray-700">
+        <tr>
+          <th class="px-6 py-4 text-left font-semibold">Organization</th>
+          <th class="px-6 py-4 text-left font-semibold">Name</th>
+          <th class="px-6 py-4 text-left font-semibold">Designation</th>
+          <th class="px-6 py-4 text-left font-semibold">Contact</th>
+          <th class="px-6 py-4 text-left font-semibold">Date & Time</th>
+          <th class="px-6 py-4 text-left font-semibold">Team Leader</th>
+          <th class="px-6 py-4 text-left font-semibold">Remarks</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200"></tbody>
+    </table>
+  </div>
+</div>
+</main>
 
   <footer class="text-neon-red text-center text-xs font-bold p-4 mt-12">
     &copy; 2026 MDRRMO Rosario, Cavite - All Rights Reserved
