@@ -308,39 +308,91 @@ document.addEventListener("DOMContentLoaded", () => {
 // PDF EXPORT
 // ======================
 // ================= DOWNLOAD PDF =================
-function printTable(tableId, titleText = '') {
+// ================= DOWNLOAD PDF =================
+async function downloadPDF(tableId, titleText) {
   const table = document.getElementById(tableId);
   if (!table) return;
 
-  const printWindow = window.open('', '', 'width=900,height=700');
+  // Clone table for PDF
+  const clone = table.cloneNode(true);
 
-  // Create document structure
-  const doc = printWindow.document;
-  const html = doc.documentElement;
+  // Container div
+  const container = document.createElement('div');
+  container.style.padding = '20px';
+  container.style.backgroundColor = 'white';
+  container.style.color = 'black';
+  container.style.fontFamily = 'Arial, sans-serif';
 
-  // Clear existing content
-  doc.head.innerHTML = `
-    <title>${titleText || 'Print Table'}</title>
-    <style>
-      body{font-family:sans-serif; padding:20px;}
-      h1{text-align:center; margin-bottom:20px;}
-      table{width:100%; border-collapse: collapse;}
-      th, td{border:1px solid #000; padding:8px; text-align:left;}
-    </style>
-  `;
+  // Title
+  const title = document.createElement('h1');
+  title.textContent = titleText.replace(/_/g, ' ');
+  title.style.textAlign = 'center';
+  title.style.marginBottom = '20px';
+  container.appendChild(title);
 
-  const body = doc.body;
-  const h1 = doc.createElement('h1');
-  h1.textContent = titleText || 'Table';
-  body.appendChild(h1);
+  // Append cloned table
+  container.appendChild(clone);
 
-  const tableClone = table.cloneNode(true);
-  body.appendChild(tableClone);
+  // Append to body temporarily
+  document.body.appendChild(container);
 
-  printWindow.focus();
-  printWindow.print();
+  // Generate PDF
+  const canvas = await html2canvas(container, { scale: 2 });
+  const imgData = canvas.toDataURL('image/png');
+  const pdf = new jsPDF('p', 'pt', 'a4');
+  const imgProps = pdf.getImageProperties(imgData);
+  const pdfWidth = pdf.internal.pageSize.getWidth();
+  const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+  pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+  pdf.save(`${titleText}.pdf`);
+
+  // Remove temporary container
+  document.body.removeChild(container);
 }
 
+// ================= PRINT TABLE =================
+function printTable(tableId, titleText) {
+  const table = document.getElementById(tableId);
+  if (!table) return;
+
+  const content = `
+    <html>
+      <head>
+        <title>${titleText}</title>
+        <style>
+          body { font-family: Arial, sans-serif; padding: 20px; color: black; }
+          h1 { text-align: center; margin-bottom: 20px; }
+          table { width: 100%; border-collapse: collapse; font-size: 12px; }
+          th, td { border: 1px solid #000; padding: 6px; text-align: left; }
+          th { background-color: #f0f0f0; }
+          @media print {
+            body { -webkit-print-color-adjust: exact; }
+            .no-print { display: none !important; }
+          }
+        </style>
+      </head>
+      <body>
+        <h1>${titleText}</h1>
+        ${table.outerHTML}
+      </body>
+    </html>
+  `;
+
+  // Mobile-friendly: use iframe instead of window.open
+  const printFrame = document.createElement('iframe');
+  printFrame.style.position = 'absolute';
+  printFrame.style.width = '0';
+  printFrame.style.height = '0';
+  printFrame.style.border = '0';
+  document.body.appendChild(printFrame);
+  const doc = printFrame.contentDocument || printFrame.contentWindow.document;
+  doc.open();
+  doc.write(content);
+  doc.close();
+  printFrame.contentWindow.focus();
+  printFrame.contentWindow.print();
+  document.body.removeChild(printFrame);
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   // Fade in the page on load
