@@ -293,7 +293,7 @@ adminLinks.forEach(link => {
       alert("Wrong password!");
     }
   });
-});
+
 // ======================
 // PDF EXPORT
 // ======================
