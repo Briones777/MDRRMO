@@ -76,13 +76,12 @@
 
         <a href="#gallery" class=" hover:underline transition">Gallery</a>
         <a href="#announcements" class=" hover:underline transition">Announcements</a>
-        <a id="adminLink" href="#"  class="hover:underline transition">Administrator</a>
-        <a href="index.html" class="hover:underline transition">Close</a>
+        <a id="adminLink" href="#" class="hover:underline transition">Administrator</a>
       </nav>
 
       <!-- Mobile Hamburger -->
-      <div class="md:hidden flex items-center z-50">
-        <button id="mobileMenuBtn" class="p-2 rounded-lg hover:text-green-800 z-50 text-neon-green focus:outline-none">
+      <div class="md:hidden flex items-center z-20">
+        <button id="mobileMenuBtn" class="p-2 rounded-lg hover:text-green-800 z-20 text-neon-green focus:outline-none">
           <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
@@ -96,7 +95,7 @@
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="fixed top-0 right-[-35%] h-full w-[35%] bg-black/90 shadow-lg transform transition-transform duration-300 z-50">
       <div class="p-6 mt-4 mb-4 text-[#FF0000] text-xl font-bold">Navigation</div>
-      <nav class="flex flex-col space-y-9 p-6 font-semibold text-neon-red text-sm md:text-sm">
+      <nav class="flex flex-col space-y-4 p-6 font-semibold text-neon-red text-sm md:text-sm">
         <div class="relative group">
             <button class="hover:underline transition flex items-center gap-1">
               About ▾
@@ -133,7 +132,6 @@
         <a href="#gallery" class="hover:text-red-800 hover:underline transition text-sm font-semibold">Gallery</a>
         <a href="#announcements" class="hover:text-red-800 hover:underline transition text-sm font-semibold">Announcements</a>
         <a id="adminLinkMobile" href="#" class="hover:text-red-800 hover:underline transition text-sm font-semibold">Administrator</a>
-        <a href="index.html" class="hover:text-red-800 hover:underline transition text-sm font-semibold">Close</a>
       </nav>
     </div>
   </header>
@@ -143,7 +141,7 @@
 
      <!-- HERO / WEATHER SECTION -->
     <section class="glass p-8 rounded-xl shadow-lg mb-12 w-full"  data-aos="fade-up">
-      <h2 class="text-xl font-semibold mb-4 text-neon-green text-center md:text-left">Weather Monitoring <span class="text-red-600">(Windy)</span></h2>
+      <h2 class="text-xl font-semibold mb-4 text-neon-green text-center md:text-left">Weather Monitoring (Windy)</h2>
       <div class="w-full" data-aos="zoom-in">
         <iframe id="windyMap"
           width="100%" height="500"
@@ -151,26 +149,26 @@
         </iframe>
 
         <div class=" flex justify-center mt-4 space-x-6 text-sm">
-              <button onclick="setOverlay('rain')" class="px-4 py-2 bg-red-600 text-black font-semibold rounded-lg shadow 
-             transition-all duration-300 
-             hover:bg-red-700 hover:scale-105">🌧 Rain</button>
-              <button onclick="setOverlay('wind')" class="px-4 py-2 bg-green-600 text-black font-semibold rounded-lg shadow 
-             transition-all duration-300 
-             hover:bg-green-700 hover:scale-105">💨 Wind</button>
-              <button onclick="setOverlay('pressure')" class="px-4 py-2 bg-purple-600 text-black font-semibold rounded-lg shadow 
-             transition-all duration-300 
-             hover:bg-purple-700 hover:scale-105">🌀 Typhoon</button>
-              <button onclick="setOverlay('satellite')" class="px-4 py-2 bg-orange-600 text-black font-semibold rounded-lg shadow 
-             transition-all duration-300 
-             hover:bg-yellow-700 hover:scale-105">🛰 Satellite</button>
+          <button onclick="setOverlay('rain')" class="px-4 py-2 bg-red-600 text-black font-semibold rounded-lg shadow 
+         transition-all duration-300 
+         hover:bg-red-700 hover:scale-105">🌧 Rain</button>
+          <button onclick="setOverlay('wind')" class="px-4 py-2 bg-green-600 text-black font-semibold rounded-lg shadow 
+         transition-all duration-300 
+         hover:bg-green-700 hover:scale-105">💨 Wind</button>
+          <button onclick="setOverlay('pressure')" class="px-4 py-2 bg-purple-600 text-black font-semibold rounded-lg shadow 
+         transition-all duration-300 
+         hover:bg-purple-700 hover:scale-105">🌀 Typhoon</button>
+          <button onclick="setOverlay('satellite')" class="px-4 py-2 bg-orange-600 text-black font-semibold rounded-lg shadow 
+         transition-all duration-300 
+         hover:bg-yellow-700 hover:scale-105">🛰 Satellite</button>
         </div>
 
         <script>
-            function setOverlay(type) {
-              const base = "https://embed.windy.com/embed2.html";
-              const params = "?lat=14.350&lon=120.388&zoom=6&level=surface";
-              document.getElementById("windyMap").src = `${base}${params}&overlay=${type}`;
-            }
+        function setOverlay(type) {
+          const base = "https://embed.windy.com/embed2.html";
+          const params = "?lat=14.350&lon=120.388&zoom=6&level=surface";
+          document.getElementById("windyMap").src = `${base}${params}&overlay=${type}`;
+        }
         </script>
       </div>
     </section>
@@ -207,11 +205,86 @@
       </div>
     </div>
 
+  <section class="py-16 glass">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <!-- Title -->
+    <h2 class="text-3xl font-bold text-center text-neon-red mb-12">
+      Announcements
+    </h2>
+
+    <!-- Grid -->
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- SCHEDULES -->
+      <div class="bg-gray-100 p-6 rounded-2xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold text-blue-600 mb-4">Schedules</h3>
+
+        <ul class="space-y-4 text-gray-700 text-sm">
+          <li>
+            <strong>April 10, 2026</strong><br>
+            Earthquake Drill - Barangay Hall
+          </li>
+          <li>
+            <strong>April 15, 2026</strong><br>
+            First Aid Training - Covered Court
+          </li>
+          <li>
+            <strong>April 20, 2026</strong><br>
+            Flood Preparedness Seminar
+          </li>
+        </ul>
+      </div>
+
+      <!-- NEWS -->
+      <div class="bg-gray-100 p-6 rounded-2xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold text-green-600 mb-4">News</h3>
+
+        <ul class="space-y-4 text-gray-700 text-sm">
+          <li>
+            <strong>MDRRMO conducts rescue training</strong><br>
+            Strengthening emergency response capabilities.
+          </li>
+          <li>
+            <strong>New rescue equipment acquired</strong><br>
+            Enhancing disaster readiness.
+          </li>
+          <li>
+            <strong>Community flood response improved</strong><br>
+            Faster evacuation protocols implemented.
+          </li>
+        </ul>
+      </div>
+
+      <!-- ADVISORY -->
+      <div class="bg-gray-100 p-6 rounded-2xl shadow hover:shadow-lg transition border-l-4 border-red-500">
+        <h3 class="text-xl font-semibold text-red-600 mb-4">Advisory</h3>
+
+        <ul class="space-y-4 text-gray-700 text-sm">
+          <li>
+            <strong>Heavy Rain Warning</strong><br>
+            Possible flooding in low-lying areas. Stay alert.
+          </li>
+          <li>
+            <strong>Heat Index Alert</strong><br>
+            Avoid outdoor activities during peak hours.
+          </li>
+          <li>
+            <strong>Typhoon Preparedness</strong><br>
+            Secure belongings and monitor updates.
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
     <!-- INCIDENT TABLE -->
-     <h2 class="text-neon-green font-bold text-2xl mb-4">Incidents</h2>
-     <div id="incidentTable" class="glass rounded-xl p-4 shadow-lg overflow-x-auto mb-6">
-     
+    <h2 class="text-neon-green font-bold text-xl mb-4">Incidents</h2>
+    <div id="incidentTable" class="glass rounded-xl p-4 shadow-lg overflow-x-auto mb-6">
+      
       <table class="w-full text-sm">
           <thead class="bg-gray-50">
             <tr>
@@ -230,13 +303,13 @@
 
 
     <!-- INDEX DASHBOARD: Duty Roster Summary -->
-<h2 class="text-neon-green font-bold text-2xl mb-4">Duty Roster</h2>
-<div id="indexRosterTable" class="glass rounded-xl p-4 shadow-lg overflow-x-auto mb-6">
+     <h2 class="text-neon-green font-bold text-xl mb-4">Duty Roster</h2>
+      <div id="indexRosterTable" class="glass rounded-xl p-4 shadow-lg overflow-x-auto mb-6">
   
   <table class="w-full text-sm">
-    <thead class="bg-gray-50">
+    <thead class="bg-gray-50 p-6">
       <tr>
-        <th class="px-6 py-4 text-left font-semibold">Date</th>
+         <th class="px-6 py-4 text-left font-semibold">Date</th>
         <th class="px-6 py-4 text-left font-semibold">Name</th>
         <th class="px-6 py-4 text-left font-semibold">Role</th>
         <th class="px-6 py-4 text-left font-semibold">Shift</th>
@@ -249,7 +322,7 @@
 </div>
 
 <!-- INDEX DASHBOARD: Volunteer Summary -->
-<h2 class="text-neon-green font-bold text-2xl mb-4">Volunteers</h2>   
+ <h2 class="text-neon-green font-bold text-xl mb-4">Volunteers</h2>
 <div id="indexVolunteerTable" class="glass rounded-xl p-4 shadow-lg overflow-x-auto mb-6">
   
   <table class="w-full text-sm">
@@ -284,16 +357,18 @@
     <div class="absolute bg-white w-6 h-2 top-2 left-0 rounded"></div>
     <div class="absolute bg-white h-6 w-2 left-2 top-0 rounded"></div>
   </div>
+
 </button>
 
   <!-- Chat Container -->
   <div id="chatBox"
-    class="hidden mt-3 w-80 text-white max-w-5xl p-2 bg-black backdrop-blur-lg border-2 border-green-500 rounded-xl shadow-lg flex flex-col transform transition-transform duration-300 origin-bottom-right scale-0">
+           class="hidden scale-0 transform origin-bottom-right transition-all duration-200 bg-black backdrop-blur-md border border-green-500 rounded-lg shadow-lg w-80">
 
     <!-- Header -->
-    <div class="p-3 border-b-2 border-green-500 text-green-400 font-bold flex justify-between items-center">
+    <div class="p-3 border-b-2 border-green-500 text-green-400 font-bold flex justify-between">
       First Aid Assistant
-      <button onclick="clearChat()" class="text-xs text-red-700">Clear</button>
+      <button onclick="clearChat()" class="text-xs text-red-700 font-bold">Clear</button>
+      <button onclick="closeChat()"  class="text-red-500 text-sm font-bold"> ✕ </button>
     </div>
 
     <!-- Messages -->
@@ -320,6 +395,80 @@
     </div>
   </div>
 </div>
+
+
+<section class="py-16">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <!-- Section Title -->
+    <h2 class="text-3xl font-bold text-center text-neon-red mb-12">
+      Our Guiding Principles
+    </h2>
+
+    <!-- Grid Layout -->
+    <div class="grid md:grid-cols-2 gap-8">
+
+      <!-- Mission -->
+      <div class="glass p-8 rounded-2xl shadow-md hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold text-neon-green mb-4">Mission</h3>
+        <p class="text-white leading-relaxed font-semibold">
+          To protect lives, property, and the environment through effective disaster risk reduction,
+          preparedness, response, and recovery programs, ensuring community resilience and safety at all times.
+        </p>
+      </div>
+
+      <!-- Vision -->
+      <div class="glass p-8 rounded-2xl shadow-md hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold text-neon-green mb-4">Vision</h3>
+        <p class="text-white leading-relaxed font-semibold">
+          A disaster-resilient community with empowered citizens, capable institutions, and sustainable
+          development practices that minimize risks and hazards.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Core Values (Full Width) -->
+    <div class="glass mx-auto mt-10 p-8 rounded-2xl shadow-md hover:shadow-lg transition">
+      <h3 class="text-2xl font-semibold text-neon-red mb-4 text-center">
+        Core Values
+      </h3>
+
+      <div class="grid md:grid-cols-3 gap-6 text-center text-black">
+        <div>
+          <h4 class="font-semibold text-neon-green">Integrity</h4>
+          <p class="text-white font-semibold text-sm">We uphold honesty and transparency in all actions.</p>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-neon-green">Service</h4>
+          <p class="text-white font-semibold text-sm">We prioritize the safety and well-being of the community.</p>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-neon-green">Preparedness</h4>
+          <p class="text-white font-semibold text-sm">We promote readiness and proactive disaster management.</p>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-neon-green">ResponseTeamwork</h4>
+          <p class="text-white font-semibold text-sm">We collaborate with stakeholders for effective response.</p>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-neon-green">Resilience</h4>
+          <p class="text-white font-semibold text-sm">We strengthen the community’s ability to recover and adapt.</p>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-neon-green">Accountability</h4>
+          <p class="text-white font-semibold text-sm">We take responsibility for our actions and decisions.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
   <!-- FOOTER -->
   <footer class="text-neon-red text-center text-xs font-bold p-4 mt-12">
