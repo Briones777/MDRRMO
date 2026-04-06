@@ -144,11 +144,11 @@
       <h2 class="text-xl font-semibold mb-4 text-neon-green text-center md:text-left">Weather Monitoring (Windy)</h2>
       <div class="w-full" data-aos="zoom-in">
         <iframe id="windyMap"
-          width="100%" height="500"
+          width="100%" class="w-full h-[300px] md:h-[500px]"
           src="https://embed.windy.com/embed2.html?lat=14.350&lon=120.388&zoom=6&overlay=rain">
         </iframe>
 
-        <div class=" flex justify-center mt-4 space-x-6 text-sm">
+        <div class=" flex flex-wrap mt-4 justify-center gap-3 mt-4 text-xs md:text-sm">
           <button onclick="setOverlay('rain')" class="px-4 py-2 bg-red-600 text-black font-semibold rounded-lg shadow 
          transition-all duration-300 
          hover:bg-red-700 hover:scale-105">🌧 Rain</button>
@@ -178,7 +178,7 @@
       AS of <span id="currentDate" class="text-neon-red"></span>
     </h1>
     <!-- STATISTICS CARDS -->
-    <div class="glass p-6 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8"  data-aos="zoom-in" data-aos-delay="100">
+    <div class="glass p-4 md:p-6 w-full grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 mb-8"  data-aos="zoom-in" data-aos-delay="100">
       <div class="bg-violet-900/30 text-white p-6 rounded-2xl shadow-2xl text-center" data-aos="zoom-in-left" data-aos-delay="100">
         <h3 class="text-lg font-semibold mb-3">Present Evacuees</h3>
         <div id="evacueesCount" class="text-3xl sm:text-3xl font-black drop-shadow-lg">45</div>
@@ -214,7 +214,7 @@
     </h2>
 
     <!-- Grid -->
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
 
       <!-- SCHEDULES -->
        <div class="glass p-6 rounded-2xl shadow hover:shadow-lg transition border-l-4 border-red-500">
