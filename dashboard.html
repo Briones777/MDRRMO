@@ -281,6 +281,129 @@
   </div>
 </section>
 
+
+    <!-- MDRRMO DASHBOARD SECTION -->
+<section class="bg-gray-100 rounded-2xl shadow-lg p-4 md:p-8 space-y-10">
+
+  <!-- TOP: ABOUT (Mobile-first stack, becomes 2 cols on md) -->
+  <div class="grid md:grid-cols-2 gap-6 items-center">
+
+    <!-- IMAGE -->
+    <div data-aos="fade-up" class="order-1 md:order-none">
+      <img src="images/mdrrmo-rosario.jpg"
+        class="w-full h-52 md:h-full object-cover rounded-xl shadow-md"
+        alt="MDRRMO Rosario">
+    </div>
+
+    <!-- TEXT -->
+    <div data-aos="fade-up" data-aos-delay="100">
+      <h2 class="text-xl md:text-2xl font-bold text-red-600 mb-3">
+        MDRRMO Rosario Cavite
+      </h2>
+
+      <p class="text-gray-700 text-sm md:text-base leading-relaxed mb-2">
+        The MDRRMO ensures disaster preparedness, response, and recovery operations
+        across the municipality. It protects lives through coordinated emergency systems.
+      </p>
+
+      <p class="text-gray-700 text-sm md:text-base leading-relaxed">
+        Through training, rescue operations, and public awareness programs,
+        the office strengthens community resilience and rapid emergency response.
+      </p>
+    </div>
+  </div>
+
+  <!-- MIDDLE: STATS DASHBOARD -->
+  <div>
+    <h3 class="text-lg font-semibold text-gray-800 mb-4" data-aos="fade-up">
+      Incident Overview
+    </h3>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+      <!-- CARD -->
+      <div data-aos="zoom-in" class="bg-white p-4 rounded-xl shadow text-center">
+        <p class="text-sm text-gray-500">Incidents</p>
+        <h4 class="text-2xl font-bold text-red-600">128</h4>
+      </div>
+
+      <div data-aos="zoom-in" data-aos-delay="100" class="bg-white p-4 rounded-xl shadow text-center">
+        <p class="text-sm text-gray-500">Response Time</p>
+        <h4 class="text-2xl font-bold text-green-600">5 min</h4>
+      </div>
+
+      <div data-aos="zoom-in" data-aos-delay="200" class="bg-white p-4 rounded-xl shadow text-center">
+        <p class="text-sm text-gray-500">Injured</p>
+        <h4 class="text-2xl font-bold text-yellow-500">32</h4>
+      </div>
+
+      <div data-aos="zoom-in" data-aos-delay="300" class="bg-white p-4 rounded-xl shadow text-center">
+        <p class="text-sm text-gray-500">Fatalities</p>
+        <h4 class="text-2xl font-bold text-black">5</h4>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- OPTIONAL: SIMPLE CHART (BAR STYLE WITHOUT LIBRARY) -->
+  <div data-aos="fade-up">
+    <h3 class="text-lg font-semibold text-gray-800 mb-4">Monthly Incidents</h3>
+
+    <div class="space-y-2">
+      <!-- BAR -->
+      <div>
+        <p class="text-xs text-gray-500">January</p>
+        <div class="w-full bg-gray-300 rounded-full h-3">
+          <div class="bg-red-500 h-3 rounded-full" style="width: 70%"></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-xs text-gray-500">February</p>
+        <div class="w-full bg-gray-300 rounded-full h-3">
+          <div class="bg-red-500 h-3 rounded-full" style="width: 50%"></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-xs text-gray-500">March</p>
+        <div class="w-full bg-gray-300 rounded-full h-3">
+          <div class="bg-red-500 h-3 rounded-full" style="width: 85%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM: LIVE DATA CARDS -->
+  <div>
+    <h3 class="text-lg font-semibold text-gray-800 mb-4" data-aos="fade-up">
+      Live Emergency Data
+    </h3>
+
+    <div class="grid md:grid-cols-3 gap-4">
+
+      <!-- HOTLINE -->
+      <div data-aos="fade-up" class="bg-red-600 text-white p-4 rounded-xl shadow">
+        <p class="text-sm opacity-80">Emergency Hotline</p>
+        <h4 class="text-xl font-bold">911</h4>
+      </div>
+
+      <!-- ALERT -->
+      <div data-aos="fade-up" data-aos-delay="100" class="bg-yellow-500 text-black p-4 rounded-xl shadow">
+        <p class="text-sm">Active Alert</p>
+        <h4 class="text-lg font-bold">Heavy Rain Warning</h4>
+      </div>
+
+      <!-- WEATHER PLACEHOLDER -->
+      <div data-aos="fade-up" data-aos-delay="200" class="bg-blue-500 text-white p-4 rounded-xl shadow">
+        <p class="text-sm opacity-80">Weather</p>
+        <h4 class="text-lg font-bold">27°C Cloudy</h4>
+      </div>
+
+    </div>
+  </div>
+
+</section>
     <!-- INCIDENT TABLE -->
     <h2 class="text-neon-green font-bold text-xl mb-4">Incidents</h2>
     <div id="incidentTable" class="glass rounded-xl p-2 md:p-4 shadow-lg overflow-x-auto mb-6">
