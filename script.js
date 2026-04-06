@@ -420,7 +420,62 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+let weatherData = {
+    temp: 36,        // °C
+    rainfall: 20,    // mm
+    wind: 35         // km/h
+  };
 
+  function updateAlerts(data) {
+    // ELEMENTS
+    const rainBox = document.getElementById("rainAlert");
+    const heatBox = document.getElementById("heatAlert");
+    const windBox = document.getElementById("windAlert");
+
+    const rainText = document.getElementById("rainText");
+    const heatText = document.getElementById("heatText");
+    const windText = document.getElementById("windText");
+
+    // RESET
+    const setStatus = (el, textEl, color, text) => {
+      el.className = `p-4 rounded-xl shadow text-white ${color}`;
+      textEl.textContent = text;
+    };
+
+    // 🌧️ RAINFALL (PAGASA STYLE)
+    if (data.rainfall >= 30) {
+      setStatus(rainBox, rainText, "bg-red-600", "RED Warning (Flooding Expected)");
+    } else if (data.rainfall >= 15) {
+      setStatus(rainBox, rainText, "bg-orange-500", "ORANGE Warning (Flooding Possible)");
+    } else if (data.rainfall >= 7.5) {
+      setStatus(rainBox, rainText, "bg-yellow-400 text-black", "YELLOW Warning (Monitor)");
+    } else {
+      setStatus(rainBox, rainText, "bg-green-500", "No Warning");
+    }
+
+    // 🌡️ HEAT INDEX
+    if (data.temp >= 41) {
+      setStatus(heatBox, heatText, "bg-red-700", "Extreme Danger");
+    } else if (data.temp >= 35) {
+      setStatus(heatBox, heatText, "bg-orange-500", "Danger");
+    } else if (data.temp >= 30) {
+      setStatus(heatBox, heatText, "bg-yellow-400 text-black", "Caution");
+    } else {
+      setStatus(heatBox, heatText, "bg-green-500", "Normal");
+    }
+
+    // 🌬️ WIND / TYPHOON
+    if (data.wind >= 62) {
+      setStatus(windBox, windText, "bg-red-600", "Tropical Storm Force");
+    } else if (data.wind >= 39) {
+      setStatus(windBox, windText, "bg-orange-500", "Strong Winds");
+    } else {
+      setStatus(windBox, windText, "bg-green-500", "Normal");
+    }
+  }
+
+  // INITIAL RUN
+  updateAlerts(weatherData);
 
 
 
