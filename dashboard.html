@@ -104,6 +104,49 @@
       </div>
     </section>
 
+    <!-- PAGASA ALERT SYSTEM -->
+<section class="bg-white rounded-2xl shadow-lg p-4 md:p-8 mt-8 space-y-6">
+
+  <!-- HEADER -->
+  <div data-aos="fade-up">
+    <h2 class="text-xl md:text-2xl font-bold text-blue-700">
+      PAGASA-Based Alert System
+    </h2>
+    <p class="text-sm text-gray-600">
+      Automated hazard warnings based on weather conditions for Rosario, Cavite.
+    </p>
+  </div>
+
+  <!-- ALERT CARDS -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+    <!-- RAINFALL WARNING -->
+    <div id="rainAlert" class="p-4 rounded-xl shadow text-white bg-green-500" data-aos="zoom-in">
+      <p class="text-sm opacity-80">Rainfall Warning</p>
+      <h4 id="rainText" class="text-lg font-bold">No Warning</h4>
+    </div>
+
+    <!-- HEAT INDEX -->
+    <div id="heatAlert" class="p-4 rounded-xl shadow text-white bg-green-500" data-aos="zoom-in" data-aos-delay="100">
+      <p class="text-sm opacity-80">Heat Index</p>
+      <h4 id="heatText" class="text-lg font-bold">Normal</h4>
+    </div>
+
+    <!-- WIND / TYPHOON -->
+    <div id="windAlert" class="p-4 rounded-xl shadow text-white bg-green-500" data-aos="zoom-in" data-aos-delay="200">
+      <p class="text-sm opacity-80">Wind Condition</p>
+      <h4 id="windText" class="text-lg font-bold">Normal</h4>
+    </div>
+
+  </div>
+
+  <!-- STATUS DESCRIPTION -->
+  <div class="text-sm text-gray-600 text-center" data-aos="fade-up">
+    Alerts automatically update based on weather thresholds aligned with PAGASA standards.
+  </div>
+
+</section>
+
 
     <h1 id="statsHeader" class="text-xl font-bold text-white mb-6 text-center">
       AS of <span id="currentDate" class="text-neon-red"></span>
