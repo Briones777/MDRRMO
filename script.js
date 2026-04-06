@@ -479,7 +479,45 @@ let weatherData = {
 
 
 
+const API_KEY = "a450e8fb5d644335ad485151260604";
+  const LOCATION = "Rosario, Cavite";
 
+  async function fetchWeather() {
+    try {
+      const res = await fetch(
+        `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${LOCATION}&aqi=no`
+      );
+
+      const data = await res.json();
+
+      // Extract needed values
+      const weatherData = {
+        temp: data.current.temp_c,
+        rainfall: data.current.precip_mm,
+        wind: data.current.wind_kph
+      };
+
+      // 🔥 Update PAGASA Alerts
+      updateAlerts(weatherData);
+
+      // OPTIONAL: Update UI display
+      document.getElementById("weatherTemp").textContent =
+        weatherData.temp + "°C";
+
+      document.getElementById("weatherCondition").textContent =
+        data.current.condition.text;
+
+      // OPTIONAL: Sync to Firebase
+      updateFirebase(weatherData);
+
+    } catch (err) {
+      console.error("Weather fetch error:", err);
+    }
+  }
+
+  // AUTO REFRESH every 5 minutes
+  fetchWeather();
+  setInterval(fetchWeather, 300000);
 
 
 
