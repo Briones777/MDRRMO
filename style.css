@@ -1,3 +1,20 @@
+@media (max-width: 640px) {
+  h1, h2 {
+    line-height: 1.2;
+  }
+
+  section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .glass {
+    padding: 1rem !important;
+  }
+}
+
+
+
 /* Glassmorphism sections */
     .glass {
       background: rgba(15, 15, 15, 0.6);
@@ -163,3 +180,7 @@ body.loaded {
     display: none !important;
   }
 }
+
+
+
+
