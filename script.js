@@ -170,6 +170,16 @@ C - Circulation / Sirkulasyon (CPR kung kinakailangan)`;
 • Seek medical help immediately / Agad magpatingin sa doktor`;
       break;
 
+              case "drowned":
+      response = `🔴 <b>Drowned/Pagkalunod</b><br>
+• Remove the person from the water safely. / Ahunin agad ang pasyente mula sa tubig nang ligtas.<br>
+• Check if responsive and breathing. / Tingnan kung may malay at humihinga<br>
+• Call emergency help immediately. / Tumawag agad ng emergency help.<br>
+• If not breathing, start CPR right away. / Kung hindi humihinga, simulan agad ang CPR.<br>
+• If breathing, place in recovery position. / Kung humihinga, ihiga sa recovery position.<br>
+• Keep the person warm and monitor until help arrives. / Panatilihing mainit ang katawan at bantayan hanggang dumating ang tulong.`;
+      break;
+
     case "burn":
       response = `🔥 <b>Burn</b><br>
 • Remove from heat source / Ilayo sa pinanggalingan ng init<br>
