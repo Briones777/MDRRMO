@@ -489,7 +489,7 @@ let weatherData = {
 
 
 
-const API_KEY = "a450e8fb5d644335ad485151260604";
+const API_KEY = "b3780c945c214fdcb33115251261204";
   const LOCATION = "Rosario, Cavite";
 
   async function fetchWeather() {
