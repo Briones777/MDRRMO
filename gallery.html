@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MDRRMO</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="./images/mdr.PNG" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<title>MDRRMO Gallery</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { scrollbar-width: none; }
+
+    .scroll-container {
+  cursor: grab;
+  scroll-behavior: smooth;
+}
+
+.scroll-container:active {
+  cursor: grabbing;
+}
+</style>
+</head>
+
+<body class="bg-black text-white">
+    <!-- HEADER -->
+  <header class="p-6 top-0 left-0 right-0  bg-black/40 overflow-hidden">
+    <div class="flex justify-between items-center">
+     <div class="flex flex-col lg:flex-row items-center md:justify-start gap-2 md:gap-4 px-2 md:px-4">
+    
+    <!-- Logos -->
+    <div class="flex space-x-3 mt-2 lg:mt-0 ml-0 lg:ml-6">
+      <img src="./images/MunicipalityRosario-logo.png" alt="rsr Logo"
+           class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full object-cover">
+      <img src="./images/mdr.PNG" alt="MDRRMO Logo"
+           class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full object-cover">
+    </div>
+    
+    <!-- Text -->
+    <div class="flex flex-col text-center lg:text-left mt-2 lg:mt-0 lg:ml-4">
+      <h1 class="text-3xl md:text-3xl font-bold text-neon-green">MDRRMO Rosario, Cavite</h1>
+      <span class="text-xs md:text-sm text-[#FF0000] font-bold">Bayang Tahimik, Masaya, at Maunlad</span>
+    </div>
+  </div>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex space-x-4 font-semibold text-neon-green text-sm md:text-sm mr-16 mt-12">
+        <a href="gallery.html" class=" hover:underline transition">Gallery</a>
+        <a href="announcements.html" class=" hover:underline transition">News / Advisories</a>
+        <a id="adminLink" href="#" class="hover:underline transition">Administrator</a>
+        <a href="index.php" class="hover:underline transition">Close</a>
+      </nav>
+
+      <!-- Mobile Hamburger -->
+      <div class="md:hidden flex items-center z-20">
+        <button id="mobileMenuBtn" class="p-2 rounded-lg hover:text-green-800 z-20 text-neon-green focus:outline-none">
+          <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Backdrop -->
+    <div id="mobileBackdrop" class="fixed inset-0 bg-black/80 z-20 hidden"></div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed top-0 right-[-35%] h-full w-[35%] bg-black/90 shadow-lg transform transition-transform duration-300 z-50">
+      <div class="p-6 mt-4 mb-4 text-[#FF0000] text-xl font-bold">Navigation</div>
+      <nav class="flex flex-col space-y-4 p-6 font-semibold text-neon-red text-sm md:text-sm">
+        <a href="gallery.html" class="hover:text-red-800 hover:underline transition text-sm font-semibold">Gallery</a>
+        <a href="#announcements" class="hover:text-red-800 hover:underline transition text-sm font-semibold">Advisories</a>
+        <a id="adminLinkMobile" href="#" class="hover:text-red-800 hover:underline transition text-sm font-semibold">Administrator</a>
+        <a href="index.php" class="hover:text-red-800 hover:underline transition text-sm font-semibold">Close</a>
+      </nav>
+    </div>
+  </header>
+
+<div class="max-w-7xl mx-auto px-4 py-10 mt-12">
+<!-- ================= GALLERY ================= -->
+
+<section class="glass max-w-4xl mx-auto mb-16 p-12">
+  <h2 class="text-2xl text-neon-red font-semibold mb-6">Holy Week Operations</h2>
+
+  <div class="flex gap-6 overflow-x-auto no-scrollbar scroll-container">
+
+    <img src="./gallery/holyweek-26/holyweek'2026.jpg" alt="holyweek"
+         loading="lazy"
+         onerror="this.src='https://via.placeholder.com/400x300?text=Image+Unavailable'"
+         data-album="holyweek"
+         data-caption="Medical Assistance"
+         class="gallery-img w-72 h-48 object-cover rounded-xl cursor-pointer hover:scale-105 transition select-none">
+
+    <img src="./gallery/holyweek-26/668126033_1995746001056290_2717124933231690505_n.jpg" alt="holyweek"
+         loading="lazy"
+         onerror="this.src='https://via.placeholder.com/400x300?text=Image+Unavailable'"
+         data-album="holyweek"
+         data-caption="Medical Assistance"
+         class="gallery-img w-72 h-48 object-cover rounded-xl cursor-pointer hover:scale-105 transition select-none">
+
+    <img src="./gallery/holyweek-26/kcert.jpg" alt="holyweek"
+         loading="lazy"
+         onerror="this.src='https://via.placeholder.com/400x300?text=Image+Unavailable'"
+         data-album="holyweek"
+         data-caption="Medical Assistance"
+         class="gallery-img w-72 h-48 object-cover rounded-xl cursor-pointer hover:scale-105 transition select-none">
+
+    <img src="./gallery/holyweek-26/670988702_1706964713645760_2242437070323348070_n.jpg" alt="holyweek"
+         loading="lazy"
+         onerror="this.src='https://via.placeholder.com/400x300?text=Image+Unavailable'"
+         data-album="holyweek"
+         data-caption="Medical Assistance"
+         class="gallery-img w-72 h-48 object-cover rounded-xl cursor-pointer hover:scale-105 transition select-none">
+
+    <img src="./gallery/holyweek-26/665205662_926951610163785_4634524224649340719_n.jpg" alt="holyweek"
+         loading="lazy"
+         onerror="this.src='https://via.placeholder.com/400x300?text=Image+Unavailable'"
+         data-album="holyweek"
+         data-caption="Traffic Monitoring"
+         class="gallery-img w-72 h-48 object-cover rounded-xl cursor-pointer hover:scale-105 transition select-none">
+
+    <img src="./gallery/holyweek-26/667713682_4512369749050119_1553575033736055111_n.jpg" alt="holyweek"
+         loading="lazy"
+         onerror="this.src='https://via.placeholder.com/400x300?text=Image+Unavailable'"
+         data-album="holyweek"
+         data-caption="Traffic Monitoring"
+         class="gallery-img w-72 h-48 object-cover rounded-xl cursor-pointer hover:scale-105 transition select-none">     
+    
+    <img src="./gallery/holyweek-26/holyweek'26.jpg" alt="holyweek"
+         loading="lazy"
+         onerror="this.src='https://via.placeholder.com/400x300?text=Image+Unavailable'"
+         data-album="holyweek"
+         data-caption="Traffic Monitoring"
+         class="gallery-img w-72 h-48 object-cover rounded-xl cursor-pointer hover:scale-105 transition select-none">
+   
+  <img src="./gallery/holyweek-26/670988702_1706964713645760_2242437070323348070_n.jpg" alt="holyweek"
+         loading="lazy"
+         onerror="this.src='https://via.placeholder.com/400x300?text=Image+Unavailable'"
+         data-album="holyweek"
+         data-caption="Traffic Monitoring"
+         class="gallery-img w-72 h-48 object-cover rounded-xl cursor-pointer hover:scale-105 transition select-none">
+
+    <img src="./gallery/holyweek-26/668126033_1995746001056290_2717124933231690505_n.jpg" alt="holyweek"
+         loading="lazy"
+         onerror="this.src='https://via.placeholder.com/400x300?text=Image+Unavailable'"
+         data-album="holyweek"
+         data-caption="Traffic Monitoring"
+         class="gallery-img w-72 h-48 object-cover rounded-xl cursor-pointer hover:scale-105 transition select-none">
+
+   </div>
+</section>
+
+<section class="glass max-w-4xl mx-auto mb-16 p-12">
+  <h2 class="text-2xl text-neon-red font-semibold mb-6">Typhoon Aldog Response</h2>
+
+  <div class="flex gap-6 overflow-x-auto no-scrollbar">
+
+    <img src="https://images.unsplash.com/photo-1547683905-f686c993aae5?auto=format&fit=crop&w=800&q=60"
+         loading="lazy"
+         onerror="this.src='https://via.placeholder.com/400x300?text=Image+Unavailable'"
+         data-album="typhoon"
+         data-caption="Flood Rescue"
+         class="gallery-img w-72 h-48 object-cover rounded-xl cursor-pointer hover:scale-105 transition select-none">
+
+    <img src="https://images.unsplash.com/photo-1608889175250-3b5a1d1c6d9a?auto=format&fit=crop&w=800&q=60"
+         loading="lazy"
+         onerror="this.src='https://via.placeholder.com/400x300?text=Image+Unavailable'"
+         data-album="typhoon"
+         data-caption="Evacuation Center"
+         class="gallery-img w-72 h-48 object-cover rounded-xl cursor-pointer hover:scale-105 transition select-none">
+
+  </div>
+</section>
+
+</div>
+
+<!-- ================= LIGHTBOX ================= -->
+<div id="lightbox"
+     class="hidden fixed inset-0 bg-black bg-opacity-95 flex items-center justify-center z-50 transition">
+
+  <!-- CLOSE -->
+  <span onclick="closeViewer()"
+        class="absolute top-5 right-8 text-white text-4xl cursor-pointer z-50">&times;</span>
+
+  <!-- COUNTER -->
+  <div id="imageCounter"
+       class="absolute top-5 left-8 text-white z-50"></div>
+
+  <!-- PREV -->
+  <button onclick="prevImage()"
+          class="absolute left-5 text-white text-5xl z-50">&#10094;</button>
+
+  <!-- IMAGE -->
+  <img id="lightboxImg"
+       class="max-h-[80vh] max-w-[90vw] rounded-lg transition-transform duration-200">
+
+  <!-- NEXT -->
+  <button onclick="nextImage()"
+          class="absolute right-5 text-white text-5xl z-50">&#10095;</button>
+
+  <!-- CAPTION -->
+  <p id="lightboxCaption"
+     class="absolute bottom-10 text-white text-lg text-center w-full"></p>
+
+</div>
+
+<!-- ================= SCRIPT ================= -->
+<script>
+
+let albums = {};
+let currentAlbum = [];
+let currentIndex = 0;
+let scale = 1;
+
+// AUTO BUILD
+document.querySelectorAll('.gallery-img').forEach((img) => {
+  const album = img.dataset.album;
+
+  if (!albums[album]) albums[album] = [];
+
+  const index = albums[album].length;
+
+  albums[album].push({
+    src: img.src,
+    caption: img.dataset.caption
+  });
+
+  img.addEventListener('click', () => openViewer(album, index));
+});
+
+// OPEN
+function openViewer(albumName, index) {
+  currentAlbum = albums[albumName];
+  currentIndex = index;
+  scale = 1;
+  showImage();
+
+  document.getElementById('lightbox').classList.remove('hidden');
+}
+
+// SHOW
+function showImage() {
+  const img = currentAlbum[currentIndex];
+  const el = document.getElementById('lightboxImg');
+
+  el.src = img.src;
+  el.style.transform = "scale(1)";
+
+  document.getElementById('lightboxCaption').innerText = img.caption;
+  document.getElementById('imageCounter').innerText =
+    (currentIndex + 1) + " / " + currentAlbum.length;
+}
+
+// NAV
+function nextImage() {
+  currentIndex = (currentIndex + 1) % currentAlbum.length;
+  showImage();
+}
+
+function prevImage() {
+  currentIndex = (currentIndex - 1 + currentAlbum.length) % currentAlbum.length;
+  showImage();
+}
+
+// CLOSE
+function closeViewer() {
+  document.getElementById('lightbox').classList.add('hidden');
+}
+
+// KEYBOARD SUPPORT
+document.addEventListener('keydown', (e) => {
+  if (document.getElementById('lightbox').classList.contains('hidden')) return;
+
+  if (e.key === "ArrowRight") nextImage();
+  if (e.key === "ArrowLeft") prevImage();
+  if (e.key === "Escape") closeViewer();
+});
+
+// SWIPE
+let startX = 0;
+let endX = 0;
+
+lightbox.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+lightbox.addEventListener('touchmove', e => endX = e.touches[0].clientX);
+lightbox.addEventListener('touchend', () => {
+  let diff = startX - endX;
+  if (Math.abs(diff) > 50) diff > 0 ? nextImage() : prevImage();
+});
+
+// ZOOM
+const imageEl = document.getElementById('lightboxImg');
+
+imageEl.addEventListener('wheel', e => {
+  e.preventDefault();
+  scale += (e.deltaY < 0 ? 0.2 : -0.2);
+  scale = Math.max(1, Math.min(scale, 3));
+  imageEl.style.transform = `scale(${scale})`;
+});
+
+</script>
+
+
+<script>
+
+// Apply drag + wheel scroll to ALL albums
+document.querySelectorAll('.scroll-container').forEach(container => {
+
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  // =========================
+  // 🖱 DRAG SCROLL (DESKTOP)
+  // =========================
+  container.addEventListener('mousedown', (e) => {
+    isDown = true;
+    startX = e.pageX - container.offsetLeft;
+    scrollLeft = container.scrollLeft;
+    container.style.cursor = "grabbing";
+  });
+
+  container.addEventListener('mouseleave', () => {
+    isDown = false;
+    container.style.cursor = "grab";
+  });
+
+  container.addEventListener('mouseup', () => {
+    isDown = false;
+    container.style.cursor = "grab";
+  });
+
+  container.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+
+    const x = e.pageX - container.offsetLeft;
+    const walk = (x - startX) * 2; // speed control
+    container.scrollLeft = scrollLeft - walk;
+  });
+
+  // =========================
+  // 🖱 WHEEL → HORIZONTAL SCROLL
+  // =========================
+  container.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    container.scrollLeft += e.deltaY;
+  }, { passive: false });
+
+  // =========================
+  // 📱 TOUCH IMPROVEMENT (SMOOTH FEEL)
+  // =========================
+  let touchStartX = 0;
+
+  container.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+  });
+
+  container.addEventListener('touchmove', (e) => {
+    const touchX = e.touches[0].clientX;
+    const diff = touchStartX - touchX;
+    container.scrollLeft += diff * 0.5;
+    touchStartX = touchX;
+  });
+
+});
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
